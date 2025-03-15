@@ -11,7 +11,8 @@ import InfoCard from "../../components/Cards/InfoCard";
 import { addThousandSeparator } from "../../utils/helper";
 import RecentTransactions from "../../components/Dashboard/RecentTransactions";
 import FinanceOverview from "../../components/Dashboard/FinanceOverview";
-import ExpenseTransactions from "./ExpenseTransactions";
+import ExpenseTransactions from "../../components/Dashboard/ExpenseTransactions";
+import Last30DaysExpenses from "../../components/Dashboard/Last30DaysExpenses";
 
 const Home = () => {
   useUserAuth();
@@ -88,6 +89,10 @@ const Home = () => {
           <ExpenseTransactions
             transactions={dashboardData?.last30daysExpenses?.transactions || []}
             onSeeMore={() => navigate("/expense")}
+          />
+
+          <Last30DaysExpenses
+            data={dashboardData?.last30daysExpenses?.transactions || []}
           />
         </div>
       </div>
