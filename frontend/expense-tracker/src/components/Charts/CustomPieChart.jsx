@@ -17,6 +17,10 @@ const CustomPieChart = ({
   colors,
   showTextAnchor,
 }) => {
+  // console.log("showTextAnchor:", showTextAnchor); // Check if it's true
+  // console.log("label:", label); // Check if label is correct
+  // console.log("totalAmount:", totalAmount); // Check if totalAmount is correct
+
   return (
     <ResponsiveContainer width="100%" height={300}>
       <PieChart>
@@ -29,6 +33,31 @@ const CustomPieChart = ({
           outerRadius={130}
           innerRadius={100}
           labelLine={false}
+          label={({ cx, cy }) =>
+            showTextAnchor ? (
+              <>
+                <text
+                  x={cx}
+                  y={cy - 15}
+                  textAnchor="middle"
+                  fill="#666"
+                  fontSize="14px"
+                >
+                  {label}
+                </text>
+                <text
+                  x={cx}
+                  y={cy + 10}
+                  textAnchor="middle"
+                  fill="#333"
+                  fontSize="24px"
+                  fontWeight="semi-bold"
+                >
+                  {totalAmount}
+                </text>
+              </>
+            ) : null
+          }
         >
           {data.map((entry, index) => (
             <Cell key={`cell-${index}`} fill={colors[index % colors.length]} />
@@ -36,33 +65,6 @@ const CustomPieChart = ({
         </Pie>
         <Tooltip content={CustomTooltip} />
         <Legend content={CustomLegend} />
-
-        {showTextAnchor && (
-          <>
-            <text
-              x="50%"
-              y="50%"
-              dy={-25}
-              textAnchor="middle"
-              fill="#666"
-              fontSize="14px"
-            >
-              {label}
-            </text>
-
-            <text
-              x="50%"
-              y="50%"
-              dy={8}
-              textAnchor="middle"
-              fill="#333"
-              fontSize="24px"
-              fontWeight="semi-bold"
-            >
-              {totalAmount}
-            </text>
-          </>
-        )}
       </PieChart>
     </ResponsiveContainer>
   );
