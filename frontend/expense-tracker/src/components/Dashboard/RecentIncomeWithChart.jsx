@@ -5,8 +5,8 @@ import CustomPieChart from "../Charts/CustomPieChart";
 const COLORS = ["#875CF5", "#FA2C37", "#FF6900", "#4f39f6"];
 
 const RecentIncomeWithChart = ({ data, totalIncome }) => {
-  console.log("Received Data for Chart:", data);
-  console.log("Total Income:", totalIncome);
+  //console.log("Received Data for Chart:", data);
+  //console.log("Total Income:", totalIncome);
   const [chartData, setChartData] = useState([]);
 
   const prepareChartData = () => {
@@ -24,8 +24,8 @@ const RecentIncomeWithChart = ({ data, totalIncome }) => {
     return () => {};
   }, [data]);
 
-  console.log("chartData:", chartData);
-  console.log("totalIncome:", totalIncome);
+  //console.log("chartData:", chartData);
+  //console.log("totalIncome:", totalIncome);
 
   return (
     <div className="card">
