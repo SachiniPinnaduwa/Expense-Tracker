@@ -77,7 +77,7 @@ const Home = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
-          {/* <RecentTransactions
+          <RecentTransactions
             transactions={dashboardData?.recentTransactions}
             onSeeMore={() => navigate("/expense")}
           />
@@ -95,7 +95,7 @@ const Home = () => {
 
           <Last30DaysExpenses
             data={dashboardData?.last30daysExpenses?.transactions || []}
-          /> */}
+          />
 
           <RecentIncomeWithChart
             data={
